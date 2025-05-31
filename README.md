@@ -1,56 +1,111 @@
-- Reto Técnico – Full Stack (AWS) 
+# Reto Técnico – Full Stack (AWS)
 
+## 1. Base de Datos
 
-- Base de Datos 
+**Objetivo:**  
+Crear una base de datos con las siguientes tablas:
+- Usuario
+- Producto
+- Categoría
 
-Crear una base de datos con las siguientes tablas: 
-1. Usuario 
-2. Producto 
-3. Categoría 
-Requisitos: 
-- Usar base de datos relacional 
-- Respetar estándares de diseño y modelamiento de base de datos 
-- Usar buenas prácticas a nivel de tablas, campos y tipo de datos 
-- Los campos de las tablas son de libre elección. 
+**Requisitos:**
+- Usar base de datos relacional
+- Respetar estándares de diseño y modelamiento de base de datos
+- Aplicar buenas prácticas en:
+  - Definición de tablas
+  - Campos y tipos de datos
+- Los campos de las tablas son de libre elección
 
+---
 
-- Back End 
-Crear las APIs para las tablas: 
-1. EndPoint de Inicio de Sesión (JWT) 
-2. EndPoints para Crear, Obtener, Editar y Eliminar un Producto. 
-3. EndPoints para Crear, Obtener, Editar y Eliminar un Categoría 
-4. EndPoint de listar Productos. 
-Requisitos: 
-- Usar Node Js, Prisma (ORM), Nest Js (Framework). 
-- Usar buenas prácticas a nivel del proyecto, código, nomenclatura, etc. 
-- Agregar validaciones a nivel de campos como limites caracteres y tipo de datos. 
-- Los endpoints de productos y categoría solo se podrán consumir con un token valido. 
-- El endpoint de crear producto no debe de permitir registro duplicados por nombres. 
-- El endpoint de listar productos debe contemplar paginación. 
-- Implementar el manejo control de errores. 
+## 2. Back End
 
+**Objetivo:**  
+Desarrollar APIs para gestionar las tablas con los siguientes endpoints:
 
+1. Autenticación:
+   - EndPoint de Inicio de Sesión (JWT)
 
-- Front End 
-Crear las siguientes interfaces: 
-1. Formulario que permita Crear, Obtener, Editar y Eliminar una Categoría 
-2. Formulario que permita Crear, Obtener, Editar y Eliminar un Producto. 
-3. Grid o Tabla de datos con información de Productos (lista de productos). 
-Requisitos: 
-- Usar React Js, Next Js (Framework). 
-- Usar buenas prácticas a nivel del proyecto, código, nomenclatura, etc. 
-- Consumir las APIs de Producto en el Formulario. 
-- Consumir las APIs de Categoría en el Formulario. 
-- El grid o la tabla de productos debe contemplar paginación. 
-- Agregar validaciones de datos en los formularios.  
+2. Gestión de Productos:
+   - CRUD completo (Crear, Obtener, Editar, Eliminar)
+   - EndPoint de listado de Productos
 
+3. Gestión de Categorías:
+   - CRUD completo (Crear, Obtener, Editar, Eliminar)
 
-- Cloud 
-Usar los servicios de AWS. 
-Requisitos: 
-- EC2, despliegue del Front End y Back End. 
-- RDS, creación de la instancia para la base de datos SQL.  
+**Requisitos técnicos:**
+- Stack tecnológico:
+  - Node.js
+  - Prisma (ORM)
+  - NestJS (Framework)
 
-Nota: Por temas Tecnicos no se puedo realizar este paso.
+**Requisitos funcionales:**
+- Validaciones:
+  - Límites de caracteres
+  - Tipos de datos
+- Seguridad:
+  - Endpoints de productos y categorías requieren token válido
+- Lógica de negocio:
+  - Prevenir duplicados en nombres de productos
+  - Implementar paginación en listado de productos
+- Calidad de código:
+  - Buenas prácticas en estructura de proyecto
+  - Convenciones de nomenclatura
+  - Manejo controlado de errores
 
-Opcional: Siéntase con la libertar de agregar mejoras, ya que serán tomado en cuenta. 
+---
+
+## 3. Front End
+
+**Objetivo:**  
+Desarrollar interfaces para:
+
+1. Gestión de Categorías:
+   - Formulario CRUD completo
+
+2. Gestión de Productos:
+   - Formulario CRUD completo
+   - Grid/Tabla de listado con paginación
+
+**Requisitos técnicos:**
+- Stack tecnológico:
+  - React.js
+  - Next.js (Framework)
+
+**Requisitos funcionales:**
+- Consumo de APIs:
+  - Integración con endpoints de productos
+  - Integración con endpoints de categorías
+- Experiencia de usuario:
+  - Validaciones en formularios
+  - Paginación en grid/tabla
+- Calidad de código:
+  - Buenas prácticas en estructura de proyecto
+  - Convenciones de nomenclatura
+
+---
+
+## 4. Cloud (AWS)
+
+**Objetivo:**  
+Implementar la solución en infraestructura AWS
+
+**Requisitos:**
+- Servicios a utilizar:
+  - EC2: Despliegue de Front End y Back End
+  - RDS: Instancia para base de datos SQL
+
+**Nota:**  
+*Por temas técnicos no se pudo realizar este paso durante el desarrollo.*
+
+---
+
+## 5. Mejoras Opcionales
+
+Se valorarán positivamente:
+- Implementación de características adicionales
+- Optimizaciones de performance
+- Mejoras en la experiencia de usuario
+- Cualquier otra mejora que agregue valor al proyecto
+
+*Los candidatos tienen libertad creativa para proponer e implementar mejoras adicionales.*
