@@ -3,7 +3,7 @@
 
 import { useRouter } from "next/navigation";
 import CategorieForm, { CategorieFormData } from "@/components/categories/CategorieForm";
-import { crearCategories } from "@/services/categories";
+import { crearCategories, obtenerCategories } from "@/services/categories";
 import Navbar from "@/components/Navbar";
 
 export default function NuevaCategoriePage() {
@@ -11,10 +11,22 @@ export default function NuevaCategoriePage() {
 
   async function handleCreate(data: CategorieFormData) {
     try {
+      const existentes = await obtenerCategories();
+
+      const yaExiste = existentes.some(
+        (cat) => cat.nombre.trim().toLowerCase() === data.nombre.trim().toLowerCase()
+      );
+
+      if (yaExiste) {
+        alert("Ya existe una categoría con ese nombre.");
+        return;
+      }
+
       await crearCategories(data);
-      router.push("/categories"); // Redirige al listado
+      router.push("/categories");
     } catch (error) {
       console.error("Error al crear categoría:", error);
+      alert("Error al crear categoría");
     }
   }
 

@@ -2,7 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
-import { Product, obtenerProductPorId, editarProduct } from "@/services/products";
+import {
+  Product,
+  obtenerProductPorId,
+  obtenerProducts,
+  editarProduct,
+} from "@/services/products";
 import Navbar from "@/components/Navbar";
 import ProductForm from "@/components/products/ProductForm";
 
@@ -17,6 +22,7 @@ export default function EditarProductPage() {
       const data = await obtenerProductPorId(id);
       setProduct(data);
     }
+
     if (params?.id) {
       fetchProduct();
     }
@@ -24,6 +30,20 @@ export default function EditarProductPage() {
 
   const handleSubmit = async (data: Product) => {
     const id = Number(params.id);
+
+    // Verificar nombre duplicado
+    const productos = await obtenerProducts();
+    const yaExiste = productos.some(
+      (p) =>
+        p.id !== id &&
+        p.nombre.trim().toLowerCase() === data.nombre.trim().toLowerCase()
+    );
+
+    if (yaExiste) {
+      alert("Ya existe otro producto con ese nombre.");
+      return;
+    }
+
     await editarProduct(id, data);
     router.push("/products");
   };

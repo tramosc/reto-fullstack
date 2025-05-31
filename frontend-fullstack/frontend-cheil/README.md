@@ -22,12 +22,12 @@ cd nombre-del-repo-frontend
 
 Esto iniciará la aplicación en:
 
-    http://localhost:3000
+    http://localhost:3001
 
 4. Iniciar Sesión con el Usuario de Prueba
 Dirígete a:
 
-    http://localhost:3000/login
+    http://localhost:3001/login
 
 Usa el siguiente usuario de prueba (creado con el seed del backend):
 

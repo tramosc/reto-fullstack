@@ -1,4 +1,3 @@
-// src/app/categories/editar/[id]/page.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -25,6 +24,20 @@ export default function EditarCategoriaPage() {
 
   const handleSubmit = async (values: Categorie) => {
     if (!categoria?.id) return;
+
+    const todas = await obtenerCategories();
+    const yaExiste = todas
+      .filter((c) => c.id !== categoria.id) // excluye la que estamos editando
+      .some(
+        (c) =>
+          c.nombre.trim().toLowerCase() === values.nombre.trim().toLowerCase()
+      );
+
+    if (yaExiste) {
+      alert("Ya existe otra categoría con ese nombre.");
+      return;
+    }
+
     await editarCategories(categoria.id, values);
     router.push("/categories");
   };

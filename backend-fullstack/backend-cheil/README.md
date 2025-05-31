@@ -19,7 +19,7 @@ Antes de comenzar, asegúrate de tener instalado:
 
 -Crea un archivo .env en la raíz del proyecto con el siguiente contenido:
 
-    PORT=3001
+    PORT=3000
     DB_HOST=localhost
     DB_PORT=3306
     DB_USER=root
@@ -67,13 +67,13 @@ Este usuario podrás usarlo para iniciar sesión desde el frontend.
 
 - El servidor quedará corriendo en:
 
-    http://localhost:3001
+    http://localhost:3000
 
 7. Probar el Login
 
 Haz una petición POST a /login para autenticarte:
 
-POST http://localhost:3001/login
+POST http://localhost:3000/login
 
 - Body (JSON):
 
