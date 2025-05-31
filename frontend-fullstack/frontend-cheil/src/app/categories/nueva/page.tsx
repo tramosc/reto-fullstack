@@ -4,6 +4,7 @@
 import { useRouter } from "next/navigation";
 import CategorieForm, { CategorieFormData } from "@/components/categories/CategorieForm";
 import { crearCategories } from "@/services/categories";
+import Navbar from "@/components/Navbar";
 
 export default function NuevaCategoriePage() {
   const router = useRouter();
@@ -19,7 +20,7 @@ export default function NuevaCategoriePage() {
 
   return (
     <div>
-      <h1>Nueva Categoría</h1>
+      <Navbar />
       <CategorieForm onSubmit={handleCreate} />
     </div>
   );

@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+- Documentación - Instalación y Ejecución del Frontend
+- Requisitos Previos
 
-## Getting Started
+Antes de comenzar, asegúrate de tener instalado:
 
-First, run the development server:
+    -Node.js (v18 o superior recomendado)
+    -npm
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clonar el Repositorio
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+git clone https://github.com/usuario/nombre-del-repo-frontend.git
+cd nombre-del-repo-frontend
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Instalar Dependencias
 
-## Learn More
+    npm install
 
-To learn more about Next.js, take a look at the following resources:
+3. Iniciar el Servidor de Desarrollo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    npm run dev
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Esto iniciará la aplicación en:
 
-## Deploy on Vercel
+    http://localhost:3000
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Iniciar Sesión con el Usuario de Prueba
+Dirígete a:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    http://localhost:3000/login
+
+Usa el siguiente usuario de prueba (creado con el seed del backend):
+
+    Email: admin@admin.com
+    Contraseña: 123456
+
+Al iniciar sesión correctamente, el token JWT se almacena en localStorage y se redirige al dashboard protegido.
+
+5. Navegación Protegida
+
+Una vez logueado, puedes acceder a las secciones protegidas como:
+
+    /dashboard
+
+    /categories
+
+    /products
+
+Si no hay token en localStorage, el usuario es redirigido automáticamente al login.

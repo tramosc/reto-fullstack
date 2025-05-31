@@ -58,7 +58,7 @@ export default function ProductForm({ initialData, onSubmit }: Props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg mx-auto bg-white p-6 rounded-md shadow-md space-y-6 mt-6">
-      <h2 className="text-3xl font-bold text-gray-800 text-center"  >Agregar Productos</h2>
+      <h2 className="text-3xl font-bold text-gray-800 text-center"  >Seccion Productos</h2>
       <div>
         <label className="block text-gray-700 font-semibold mb-1">Nombre</label>
         <input

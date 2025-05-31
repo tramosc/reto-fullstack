@@ -30,23 +30,44 @@ export default function LoginPage() {
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: 'auto' }}>
-      <h2>Iniciar Sesión</h2>
-      <form onSubmit={handleLogin}>
+    <div className="max-w-sm mx-auto mt-20 p-8 bg-white shadow-lg rounded-lg">
+      <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Iniciar Sesión</h2>
+
+      <form onSubmit={handleLogin} className="space-y-4">
         <div>
-          <label>Email:</label>
-          <input type="email" value={email} onChange={e => setEmail(e.target.value)} required />
+          <label className="block text-gray-700 font-medium mb-1">Email:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
+          />
         </div>
 
         <div>
-          <label>Contraseña:</label>
-          <input type="password" value={password} onChange={e => setPassword(e.target.value)} required />
+          <label className="block text-gray-700 font-medium mb-1">Contraseña:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
+          />
         </div>
 
-        {error && <p style={{ color: 'red' }}>{error}</p>}
+        {error && (
+          <p className="text-red-600 text-sm font-medium">{error}</p>
+        )}
 
-        <button type="submit">Iniciar sesión</button>
+        <button
+          type="submit"
+          className="w-full bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-md transition duration-200"
+        >
+          Iniciar sesión
+        </button>
       </form>
     </div>
+
   );
 }

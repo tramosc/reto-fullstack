@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { Categorie, editarCategories, obtenerCategories } from "@/services/categories";
+import Navbar from "@/components/Navbar";
 import CategorieForm from "@/components/categories/CategorieForm";
 
 export default function EditarCategoriaPage() {
@@ -32,7 +33,7 @@ export default function EditarCategoriaPage() {
 
   return (
     <div>
-      <h1>Editar Categoría</h1>
+      <Navbar />
       <CategorieForm initialData={categoria} onSubmit={handleSubmit} />
     </div>
   );

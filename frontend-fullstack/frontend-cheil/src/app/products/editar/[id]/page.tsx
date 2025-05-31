@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { Product, obtenerProductPorId, editarProduct } from "@/services/products";
+import Navbar from "@/components/Navbar";
 import ProductForm from "@/components/products/ProductForm";
 
 export default function EditarProductPage() {
@@ -31,7 +32,7 @@ export default function EditarProductPage() {
 
   return (
     <div>
-      <h1 className="text-xl font-bold mb-4">Editar Producto</h1>
+      <Navbar />
       <ProductForm initialData={product} onSubmit={handleSubmit} />
     </div>
   );

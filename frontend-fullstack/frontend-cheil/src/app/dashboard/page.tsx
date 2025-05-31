@@ -16,7 +16,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      <h1>Dashboard privado</h1>
+      <h1 className="text-2xl font-bold mb-4">Bienvenido al Proyecto FullStack</h1>
       <p>¡Solo puedes ver esto si estás logueado!</p>
     </div>
   );

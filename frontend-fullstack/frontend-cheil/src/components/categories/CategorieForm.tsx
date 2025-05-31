@@ -10,11 +10,11 @@ const schema = z.object({
   descripcion: z.string().optional(),
 });
 
-type FormData = z.infer<typeof schema>;
+export type CategorieFormData = z.infer<typeof schema>;
 
 interface Props {
   initialData?: Categorie;
-  onSubmit: (data: FormData) => void;
+  onSubmit: (data: CategorieFormData) => void;
 }
 
 export default function CategorieForm({ initialData, onSubmit }: Props) {
@@ -22,7 +22,7 @@ export default function CategorieForm({ initialData, onSubmit }: Props) {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
+  } = useForm<CategorieFormData>({
     resolver: zodResolver(schema),
     defaultValues: {
       nombre: initialData?.nombre || "",
@@ -31,17 +31,39 @@ export default function CategorieForm({ initialData, onSubmit }: Props) {
   });
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg mx-auto bg-white p-6 rounded-md shadow-md space-y-6 mt-6">
+      <h2 className="text-3xl font-bold text-gray-800 text-center"  >Seccion Categoria</h2>
       <div>
-        <label>Nombre:</label>
-        <input {...register("nombre")} />
-        {errors.nombre && <p>{errors.nombre.message}</p>}
+        <label className="block text-gray-700 font-semibold mb-1" htmlFor="nombre">Nombre:</label>
+        <input
+          id="nombre"
+          {...register("nombre")}
+          className="w-full placeholder-gray-400 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="Nombre de la categoría"
+        />
+        {errors.nombre && (
+          <p className="mt-1 text-red-500 text-sm">{errors.nombre.message}</p>
+        )}
       </div>
+
       <div>
-        <label>Descripción:</label>
-        <textarea {...register("descripcion")} />
+        <label className="block text-gray-700 font-semibold mb-1" htmlFor="descripcion">Descripción:</label>
+        <textarea
+          id="descripcion"
+          {...register("descripcion")}
+          className="w-full placeholder-gray-400 border border-gray-300 rounded-md px-3 py-2 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+          rows={4}
+          placeholder="Descripción de la categoría (opcional)"
+        />
       </div>
-      <button type="submit">{initialData ? "Actualizar" : "Crear"}</button>
+
+      <button
+        type="submit"
+        className="w-full bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-700 transition"
+      >
+        {initialData ? "Actualizar" : "Crear"}
+      </button>
     </form>
+
   );
 }

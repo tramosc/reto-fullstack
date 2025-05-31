@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import ProductForm from "@/components/products/ProductForm";
+import Navbar from "@/components/Navbar";
 import { crearProduct } from "@/services/products";
 
 export default function NuevaProductoPage() {
@@ -18,6 +19,7 @@ export default function NuevaProductoPage() {
 
   return (
     <div>
+      <Navbar />
       <ProductForm onSubmit={handleSubmit} />
     </div>
   );
